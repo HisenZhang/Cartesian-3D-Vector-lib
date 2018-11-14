@@ -28,10 +28,11 @@ int main(int argc, char const *argv[])
     vecPrint(A);
     vecPrint(B);
 
-    printf("\nADD, SUB, CRX\n");
+    printf("\nADD, SUB, CRX, DOT\n");
     vecPrint(vecAdd(A,B));
     vecPrint(vecSub(A,B));
     vecPrint(vecCrx(A,B));
+    printf("% .2f\n",vecDot(A,B));
     
     printf("\nUnit A,B\n");
     vecPrint(vecUnit(A));
@@ -42,8 +43,8 @@ int main(int argc, char const *argv[])
     vecPrint(vecNeg(B));
     
     printf("\nMOD A,B\n");
-    printf("|% .2f|\n",vecMod(A));
-    printf("|% .2f|\n",vecMod(B));
+    printf("% .2f\n",vecMod(A));
+    printf("% .2f\n",vecMod(B));
 
     return 0;
 }
