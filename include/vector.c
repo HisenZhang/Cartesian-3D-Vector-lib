@@ -62,7 +62,7 @@ vector vecUnit(vector V)
     result.y = V.y / V.mag;
     result.z = V.z / V.mag;
 
-    result.mag = V.mag;
+    result.mag = 1.0;
 
     return result;
 }
@@ -124,6 +124,19 @@ vector vecCrx(vector A, vector B)
     result.y = - A.x * B.z - A.z * B.x;
     result.z = A.x * B.y - A.y * B.x;
 
+    result.mag = vecMod(result);
+
+    return result;
+}
+
+
+vector vecScl(vector A, double S)
+{
+    vector result;
+    result.x *= S;
+    result.y *= S;
+    result.z *= S;
+    
     result.mag = vecMod(result);
 
     return result;
