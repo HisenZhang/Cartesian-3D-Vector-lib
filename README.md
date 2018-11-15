@@ -18,15 +18,16 @@ int main(int argc, char const *argv[])
     
     printf("Vector A,B\n");
     vecPrint(A); // < 1.00, 2.00, 0.00> | 2.24| 
-    vecPrint(B); // < 0.00, 1.00, 3.00> | 3.16|
+    vecnPrint(B, 4); // < 0.0000, 1.0000, 3.0000> | 3.1623|
 
     // Arithmetic operations
 
-    printf("\nADD, SUB, CRX, DOT\n");
+    printf("\nADD, SUB, CRX, DOT, SCL\n");
     vecPrint(vecAdd(A,B));  // < 1.00, 3.00, 3.00> | 4.36|
     vecPrint(vecSub(A,B));  // < 1.00, 1.00,-3.00> | 3.32|
     vecPrint(vecCrx(A,B));  // < 6.00,-3.00, 1.00> | 6.78|
     printf("% .2f\n",vecDot(A,B)); // 2.00
+    vecPrint(vecScl(A, 4.0));  // < 8.00, 0.00, 0.00> | 8.00|
     
     // Find unit vector
     
@@ -53,33 +54,37 @@ int main(int argc, char const *argv[])
 ### Arithmetic
 #### Addition
 
-`vecAdd(A,B)` returns the sum: `A+B`.
+`vecAdd(A,B)` returns the sum: `A + B`.
 
 #### Subtraction
 
-`vecSub(A,B)` returns the difference: `A-B`.
+`vecSub(A,B)` returns the difference: `A - B`.
 
 #### Negative
 
-`vecNeg(V)` returns the nagetive: `-V`.
+`vecNeg(V)` returns the negative: `- V`.
 
 #### Modulus
 
-`vecMod(V)` returns the modulus: `|V|`.
+`vecMod(V)` returns the modulus: `| V |`.
 
 #### Unit Vector
 
-`vecUnit(V)` returns the unit vector: `^V`.
+`vecUnit(V)` returns the unit vector: `^ V`.
+
+#### Scalar Product
+
+`vecScl(V, s)` returns the vector `s * V`.
 
 #### Dot Product
 
-`vecDot(A,B)` returns the dot product: `A·B`.
+`vecDot(A,B)` returns the dot product: `A · B`.
 
 #### Cross Product
 
-`vecCrx(A,B)` returns the Cross product: `A×B`.
+`vecCrx(A,B)` returns the Cross product: `A × B`.
 
-### Utils
+### Utilities
 #### Initialization
 
 There're two ways to initialize a vector:
@@ -88,4 +93,5 @@ There're two ways to initialize a vector:
 
 #### Pretty Print
 
-`vecPrint(A)` prints the vector in the form of `<x,y,z> |modulus|`.
+1. `vecPrint(V)` prints the vector in the form of `<x,y,z> |modulus|`, 2 decimal place by default
+2. `vecnPrint(V, p)` using the specified precision `p`.

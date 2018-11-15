@@ -26,13 +26,14 @@ int main(int argc, char const *argv[])
 
     printf("Vector A,B\n");
     vecPrint(A);
-    vecPrint(B);
+    vecnPrint(B, 4);
 
-    printf("\nADD, SUB, CRX, DOT\n");
+    printf("\nADD, SUB, CRX, DOT, SCL\n");
     vecPrint(vecAdd(A,B));
     vecPrint(vecSub(A,B));
     vecPrint(vecCrx(A,B));
     printf("% .2f\n",vecDot(A,B));
+    vecPrint(vecScl(A, 4.0));
     
     printf("\nUnit A,B\n");
     vecPrint(vecUnit(A));

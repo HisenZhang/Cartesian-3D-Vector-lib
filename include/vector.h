@@ -52,11 +52,11 @@ vector vecSub(vector A, vector B);
 
 double vecDot(vector A, vector B);
 vector vecCrx(vector A, vector B);
-vector vecScl(vector A, double S);
+vector vecScl(vector A, double s);
 
 // prettyprint vector
 
 int vecPrint(vector V);
-
+int vecnPrint(vector V, int p);
 
 #endif

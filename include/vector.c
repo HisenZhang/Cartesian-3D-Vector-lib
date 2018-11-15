@@ -130,12 +130,12 @@ vector vecCrx(vector A, vector B)
 }
 
 
-vector vecScl(vector A, double S)
+vector vecScl(vector A, double s)
 {
     vector result;
-    result.x *= S;
-    result.y *= S;
-    result.z *= S;
+    result.x *= s;
+    result.y *= s;
+    result.z *= s;
     
     result.mag = vecMod(result);
 
@@ -148,6 +148,13 @@ vector vecScl(vector A, double S)
 int vecPrint(vector V)
 {
     printf("<% .2f,% .2f,% .2f> |% .2f|\n", V.x, V.y, V.z, V.mag);
+    
+    return 0;
+}
+
+int vecnPrint(vector V, int p)
+{
+    printf("<% .*f,% .*f,% .*f> |% .*f|\n", p, V.x, p, V.y, p, V.z, p, V.mag);
     
     return 0;
 }
