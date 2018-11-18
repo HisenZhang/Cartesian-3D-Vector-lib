@@ -93,5 +93,5 @@ There're two ways to initialize a vector:
 
 #### Pretty Print
 
-1. `vecPrint(V)` prints the vector in the form of `<x,y,z> |modulus|`, 2 decimal place by default
-2. `vecnPrint(V, p)` using the specified precision `p`.
+1. `vecPrint(V)` prints the vector in the form of `<x,y,z> |modulus|`, 2 decimal places by default
+2. `vecnPrint(V, p)` using the specified precision `p`. If p is 0, print in exponential form.
