@@ -21,31 +21,51 @@
 
 int main(int argc, char const *argv[])
 {
-    vector A = vecSet(1.0, 2.0, 0.0);
+    // Initialize vectors
+
+    vector A = vecSet(1.0, 2.0, 0.0); 
     vector B = vecSet(0.0, 1.0, 3.0);
 
-    printf("Vector A,B\n");
-    vecPrint(A);
-    vecnPrint(B, 4);
 
+    // vecPrint() pretty print the vector
+    // in the form of <x,y,z> |modulus|
+    
+    printf("Vector A,B\n");
+    vecPrint(A); // < 1.00, 2.00, 0.00> | 2.24| 
+    vecnPrint(B, 4); // < 0.0000, 1.0000, 3.0000> | 3.1623|
+
+    // Arithmetic operations
+	// The comming statements demonstarte 
+    // 1. Vector Addtion
+    // 2. Vector Subtraction
+    // 3. Vector Cross Product
+    // 4. Vector Dot Product
+    // 5. Vector Scalar Product
+        
     printf("\nADD, SUB, CRX, DOT, SCL\n");
-    vecPrint(vecAdd(A,B));
-    vecPrint(vecSub(A,B));
-    vecPrint(vecCrx(A,B));
-    printf("% .2f\n",vecDot(A,B));
-    vecPrint(vecScl(A, 4.0));
+    vecPrint(vecAdd(A, B));  // < 1.00, 3.00, 3.00> | 4.36|
+    vecPrint(vecSub(A, B));  // < 1.00, 1.00,-3.00> | 3.32|
+    vecPrint(vecCrx(A, B));  // < 6.00,-3.00, 1.00> | 6.78|
+    printf("% .2f\n",vecDot(A, B)); // 2.00
+    vecPrint(vecScl(A, 4.0));  // < 8.00, 0.00, 0.00> | 8.00|
+    
+    // Find unit vector
     
     printf("\nUnit A,B\n");
-    vecPrint(vecUnit(A));
-    vecPrint(vecUnit(B));
+    vecPrint(vecUnit(A));  // < 0.45, 0.89, 0.00> | 2.24|
+    vecPrint(vecUnit(B));  // < 0.00, 0.32, 0.95> | 3.16|
+
+    // Take negative
 
     printf("\nNEG A,B\n");
-    vecPrint(vecNeg(A));
-    vecPrint(vecNeg(B));
+    vecPrint(vecNeg(A));  // <-1.00,-2.00,-0.00> | 2.24|
+    vecPrint(vecNeg(B));  // <-0.00,-1.00,-3.00> | 3.16|
+
+    // Take modulus
     
     printf("\nMOD A,B\n");
-    printf("% .2f\n",vecMod(A));
-    printf("% .2f\n",vecMod(B));
+    printf("|% .2f|\n",vecMod(A));  // 2.24
+    printf("|% .2f|\n",vecMod(B));  // 3.16
 
     return 0;
 }
