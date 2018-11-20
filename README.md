@@ -11,6 +11,8 @@ This library **should not** be used for industrial or scientific use due to the 
 
 This is a brief demonstration on the commonly used functions' usage. The output of each statement follows in comments. 
 
+Several practical examples are available in `/example`.
+
 ```c
 #include "include/vector.h"
 
