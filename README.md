@@ -7,11 +7,21 @@ This library is written in hope to simplify the coding process for non-professio
 
 This library **should not** be used for industrial or scientific use due to the limited precision and performance; Complex number is not supported either.
 
+## Usage
+
+1. You may copy the files in `./include` to your project directory and compile it seperately;
+
+2. You may generate a single head file `vector.h` for your project:
+    ```bash
+    $ make single
+    ```
+    This generate a single head file in the project root directory `./`. Copy the `./vector.h` to your project and include it.
+
 ## Example
 
 This is a brief demonstration on the commonly used functions' usage. The output of each statement follows in comments. 
 
-Several practical examples are available in `/example`.
+Several practical examples are available in `./example`.
 
 ```c
 #include "include/vector.h"
