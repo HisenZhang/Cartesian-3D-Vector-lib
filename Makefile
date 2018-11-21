@@ -7,7 +7,13 @@ vector.o : include/vector.c
 test.o : test.c
 	cc -c test.c -o  build/test.o
 
-.PHONY : clean
+.PHONY : clean single
 
 clean : 
 	- rm build/*.o
+
+single :
+	tail -n +21 include/vector.c > definition.c
+	cat include/vector.h definition.c > vector.h
+	rm definition.c
+
