@@ -13,3 +13,13 @@ For compilation, all the object files and the executables would be placed in `/b
 
 This example simulates the situation of [random walk](https://en.wikipedia.org/wiki/Random_walk). 
 
+### Magnetic Field
+
+This example demonstrates the loci of a charged particle moving in a magnetic field. Plotted with `Gnuplot`.
+
+![](img/magneticField-1.png)
+
+The diagram shows a charged particle starts at origin with initial velocity <0,5,5>. It has mass 0.01 kg and charge +0.001 C. The magnetic field points towards <0,0,8>.
+
+This example uses a few more libs to calculate. They are presented in `libfields`.
+
