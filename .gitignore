@@ -53,7 +53,6 @@ dkms.conf
 
 # build dir
 build/*
-build/test
 
 # .vscode dir
 .vscode/
