@@ -38,7 +38,7 @@ int fd()
     vector* B = vecInit();
     B = vecSet(0,0,8);
     A = objInit();
-    
+
     // Initialize objects
 
     A->m = 1e-2;
@@ -54,7 +54,7 @@ int fd()
     plot3DCache(plotHandle,A->pos->x,A->pos->y,A->pos->z);
     for(time = T_INTERVAL ;time <= T_TOTAL ;time += T_INTERVAL)
     {
-        A->F = vecCrx(vecScl(A->v,A->c),B);
+        A->F = mForce(A->c,A->v,B);
         // F = BIL = qVB
 
         objUpdate(A,T_INTERVAL);

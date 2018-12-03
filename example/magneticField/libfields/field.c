@@ -38,3 +38,8 @@ double gPotential(double m, vector* R)
 {
     return - G * m / R->mag;
 }
+
+vector* mForce(double C, vector* V, vector* B)
+{
+    return vecCrx(vecScl(V,C),B);
+}

@@ -13,4 +13,6 @@ vector* gForce(double m_1, double m_2, vector* R);
 vector* gFieldStrength(double m, vector* R);
 double gPotential(double m, vector* R);
 
+vector* mForce(double C, vector* V, vector* B);
+
 #endif
