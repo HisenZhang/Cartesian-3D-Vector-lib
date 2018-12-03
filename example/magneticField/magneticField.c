@@ -1,55 +1,73 @@
-#include "../../include/vector.h"
-#include <time.h> // for srand() to set random seed
+#include "libfields/kinetics.h"
+#include "libfields/field.h"
+#include "libfields/plot.h"
 
-// set maximum step to perform
+// Declare total time and interval
 
-#define MAX_STEP 1000
+#define T_DIVISION 100000
+#define T_TOTAL 60.0                // seconds
+#define T_INTERVAL (T_TOTAL / T_DIVISION) // seconds
 
-// computation function
 
-int randomWalk();
+double time;
+
+// Declare objects
+
+object* A;
+
+// Computation function
+
+int fd();
 
 // main
 
-int main(int argc, char const *argv[])
+int main(int argc,char** argv)
 {
-    randomWalk();
+    fd();
 
     return 0;
-}
+}   
 
-int randomWalk()
+// fd implementation
+
+int fd()
 {
-    // Initialize the position vector of an object
-    vector position = vecSet(0,0,0);
+    extern object* A;
+    extern double time;
 
-    // Initialize randDiection
-    vector randDiection = vecSet(0,0,0);
+    vector* B = vecInit();
+    B = vecSet(0,0,8);
+    A = objInit();
+    
+    // Initialize objects
 
-    // Set random seed
-    srand(time(0));
+    A->m = 1e-2;
+    A->c = 1e-3;
+    A->v = vecSet(0,1,2);
+
+    // Initialize plot
+
+    FILE* plotHandle = plot3DInit(0.5);
 
     // Iteration
-    for(int step = 0;step < MAX_STEP;step++)
+
+    plot3DCache(plotHandle,A->pos->x,A->pos->y,A->pos->z);
+    for(time = T_INTERVAL ;time <= T_TOTAL ;time += T_INTERVAL)
     {
-        // since the random direction could have 
-        // negative component, take the difference
+        A->F = vecCrx(vecScl(A->v,A->c),B);
+        // F = BIL = qVB
 
-        randDiection = vecSet(rand() - rand(),
-                              rand() - rand(),
-                              rand() - rand());
-
-        // we suppose each step has length of
-        // 1 unit, so take the unit vector of 
-        // random direction.
-        randDiection = vecUnit(randDiection);
-
-        // update the position
-        position = vecAdd(position,randDiection);
+        objUpdate(A,T_INTERVAL);
+        plot3DCache(plotHandle,A->pos->x,A->pos->y,A->pos->z);
     }
 
-    // Print the result
-    vecPrint(position);
+    // Show plot and close plot
+
+    plotShow(plotHandle);
     
+    printf("\nPress any key to exit...\n");
+    getchar();
+    plotClose(plotHandle);
+
     return 0;
 }
