@@ -1,6 +1,6 @@
 #include "plot.h"
 
-FILE* plot2DInit(double ptSize)
+plot_t plot2DInit(double ptSize)
 {
     FILE *gnuplot = popen("./utils/gnuplot -presist", "w");
     fprintf(gnuplot, "set pointsize %f\n",ptSize);
@@ -10,7 +10,7 @@ FILE* plot2DInit(double ptSize)
     return gnuplot;
 }
 
-FILE* plot3DInit(double ptSize)
+plot_t plot3DInit(double ptSize)
 {
     FILE *gnuplot = popen("./utils/gnuplot -presist", "w");
     fprintf(gnuplot, "set pointsize %f\n",ptSize);
@@ -24,21 +24,21 @@ FILE* plot3DInit(double ptSize)
     return gnuplot;
 }
 
-int plot2DCache(FILE* gnuPlotHandle, double x, double y)
+int plot2DCache(plot_t gnuPlotHandle, double x, double y)
 {
     fprintf(gnuPlotHandle, "%e %e\n", x, y);
 
     return 0;
 }
 
-int plot3DCache(FILE* gnuPlotHandle, double x, double y, double z)
+int plot3DCache(plot_t gnuPlotHandle, double x, double y, double z)
 {
     fprintf(gnuPlotHandle, "%e %e %e\n", x, y, z);
 
     return 0;
 }
 
-int plotShow(FILE* gnuPlotHandle)
+int plotShow(plot_t gnuPlotHandle)
 {
     fprintf(gnuPlotHandle, "e\n");
     fflush(gnuPlotHandle);
@@ -46,7 +46,7 @@ int plotShow(FILE* gnuPlotHandle)
     return 0;
 }
 
-int plotClose(FILE* gnuPlotHandle)
+int plotClose(plot_t gnuPlotHandle)
 {
     fclose(gnuPlotHandle);
 

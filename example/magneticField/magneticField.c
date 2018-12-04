@@ -47,7 +47,7 @@ int fd()
 
     // Initialize plot
 
-    FILE* plotHandle = plot3DInit(0.5);
+    plot_t plotHandle = plot3DInit(0.5);
 
     // Iteration
 

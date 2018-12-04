@@ -3,11 +3,13 @@
 
 #include <stdio.h>
 
-FILE* plot2DInit(double ptSize);
-FILE* plot3DInit(double ptSize);
-int plot2DCache(FILE* gnuPlotHandle, double x, double y);
-int plot3DCache(FILE* gnuPlotHandle, double x, double y, double z);
-int plotShow(FILE* gnuplotHandler);
-int plotClose(FILE* gnuplotHandler);
+typedef FILE* plot_t;
+
+plot_t plot2DInit(double ptSize);
+plot_t plot3DInit(double ptSize);
+int plot2DCache(plot_t gnuPlotHandle, double x, double y);
+int plot3DCache(plot_t gnuPlotHandle, double x, double y, double z);
+int plotShow(plot_t gnuplotHandler);
+int plotClose(plot_t gnuplotHandler);
 
 #endif
