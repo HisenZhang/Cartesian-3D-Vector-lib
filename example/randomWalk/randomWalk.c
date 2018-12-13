@@ -1,4 +1,4 @@
-#include "../../include/vector.h"
+#include "include/vector.h"
 #include <time.h> // for srand() to set random seed
 
 // set maximum step to perform

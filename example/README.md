@@ -23,3 +23,9 @@ The diagram shows a charged particle starts at origin with initial velocity <0,5
 
 This example uses a few more libs to calculate. They are presented in `libfields`.
 
+### Velocity Selector
+
+Simulation of the path of a charged particle in a giant velocity selector.
+
+![](img/velocitySelector-1.png)
+

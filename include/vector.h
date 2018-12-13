@@ -20,6 +20,8 @@
 #ifndef _VECTOR_H
 #define _VECTOR_H
 
+#define vec vector
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
